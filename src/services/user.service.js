@@ -1,21 +1,31 @@
 import { UserModel } from "../models/User.model.js"; // importo el modelo de la base de datos
 
-const dbCreateUser = async (newUser) => {
+const dbCreateUser = async (newUser) => { // recibe un objeto con los datos del nuevo usuario
     return await UserModel.create(newUser); // creo usuario
 }
 
-const dbGetUsers = async () => {
+const dbGetUsers = async () => { // busco usuarios
     return await UserModel.find(); // busco usuarios
 }
-const dbDeleteUser = async (id) => {
+const dbDeleteUser = async (id) => { // busca el id en la base de datos y lo borro
     return await UserModel.findOneAndDelete({ _id: id }); // busco el id en la base de datos y lo borro
 }
-const dbUpdateUser = async (id, inputData) => {
-    const data = await UserModel.findOneAndUpdate(
-        { _id: id },  // busca el id en la base de datos
+const dbGetUserById = async (id) => { // busca el id en la base de datos y devuelve el objeto
+    return await UserModel.findOne({ _id: id }); // busca el id en la base de datos y devuelve el objeto
+}
+const dbUpdateUser = async (id, inputData) => { // busca el id en la base de datos y actualiza con el objeto recibido por body
+    return await UserModel.findOneAndUpdate(
+        { _id: id }, // busca el id en la base de datos
         inputData, // actualiza con el objeto recibido por body
-        { new: true } // devuelve el objeto actualizado
-    ) 
+        { returnDocument: "after",
+            runValidators: true } // devuelve el objeto actualizado, ejecuta las validaciones del modelo al actualizar
+    )
+}
+const dbGetUserByEmail = async (email) => { // busca el email en la base de datos y devuelve el objeto
+    if (!email) { // si no recibe un email devuelve null
+        throw new Error(`email es requerido para buscar usuario`); // lanza un error si no recibe un email
+    }
+    return await UserModel.findOne({ email: email.toLowerCase(), isActive: true }); // busca el email en la base de datos y devuelve el objeto
 }
 
-export { dbCreateUser, dbGetUsers, dbDeleteUser, dbUpdateUser };
+export { dbCreateUser, dbGetUsers, dbDeleteUser, dbGetUserById, dbUpdateUser, dbGetUserByEmail };

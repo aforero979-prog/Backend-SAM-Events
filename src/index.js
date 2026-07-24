@@ -2,9 +2,12 @@ import express from "express";
 
 import eventsRoutes from "./routes/events.routes.js"
 import locationsRoutes from "./routes/location.routes.js"
+
+import authRoutes from "./routes/auth.routes.js"
 import userRoutes from "./routes/user.routes.js"
 import categoryRoutes from './routes/categories.routes.js'
 import ticketRoutes from './routes/ticket.routes.js';
+import { authenticationUser } from "./middlewares/authentication.middleware.js";
 
 
 import { dbConection } from "./config/mongo.config.js";
@@ -27,11 +30,13 @@ app.get(`/health`, (req, res) => {
 
 
 //endpoint para probar rutas
-app.use('/categories', categoryRoutes);
-app.use('/tickets', ticketRoutes);
-app.use('/users', userRoutes);
-app.use('/events', eventsRoutes);
-app.use('/locations', locationsRoutes);
+app.use('/api/categories', categoryRoutes);
+app.use('/api/tickets', ticketRoutes);
+app.use('/api/auth', authRoutes)
+app.use('/api/events', eventsRoutes);
+app.use('/api/locations', locationsRoutes);
+app.use('/api/users', userRoutes);
+
 
 app.listen(port, () => {
     console.log(`Server is running on http://localhost:${port}`);

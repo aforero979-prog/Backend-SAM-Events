@@ -3,12 +3,12 @@ import { Schema, model } from "mongoose";
 const UserSchema = new Schema({
     name: {
         type: String,
-        required: true,
+        default: ``,
         trim: true, //para que no haya espacios al principipo y al final
     },
     email: {
         type: String,
-        required: true,
+        required: [true, `El correo es obligatorio`], // el campo es obligatorio
         unique: true,// No permite correos duplicados en la base de datos
         lowercase: true, // pasa a minuscula
         trim: true,
@@ -24,6 +24,10 @@ const UserSchema = new Schema({
         enum: ["user", "admin"],
         default: "user"
     },
+    avatar: {
+        type: String,
+        default: ``
+    },
     isActive: {
         type: Boolean,
         default: true,
@@ -37,6 +41,6 @@ const UserSchema = new Schema({
 // definir el modelo
 // `users` define el nombre del objeto creado con este schema
 // UserSchema es la estructura que se va a usar para crear el objeto
-const UserModel = model(`users`, UserSchema);
+const UserModel = model('users', UserSchema);
 
 export { UserModel };

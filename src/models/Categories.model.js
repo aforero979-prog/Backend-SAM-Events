@@ -18,7 +18,7 @@ const CategorySchema = new Schema({
     status: {
         type: Boolean,
         default: true
-    },
+    }
 },{
     versionKey: false,
     timestamps: true  
@@ -26,9 +26,9 @@ const CategorySchema = new Schema({
 
 // 2da parte: Definir el modelo 
 
-const CagoryModel = model(
+const CategoryModel = model(
     'category',                // Define el nombre de la collección que almacenará el objeto creado con este schema 
     CategorySchema
 );
 
-export default CagoryModel;
+export default CategoryModel;
