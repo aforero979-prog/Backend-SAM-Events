@@ -6,6 +6,7 @@ const REMOTE_STRING_CONNECTION = 'mongodb+srv://mrippo:Santafesito-2@cluster0.s8
 async function dbConection() {
     try {
         await mongoose.connect(REMOTE_STRING_CONNECTION);
+
         console.log(`conected mongodb`);
     } catch (error) {
         console.error(`conected failed`);
