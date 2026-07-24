@@ -1,9 +1,11 @@
 import mongoose from "mongoose";
 
+const REMOTE_STRING_CONNECTION = 'mongodb+srv://mrippo:Santafesito-2@cluster0.s8nhaxy.mongodb.net/db-SAM'
+
 
 async function dbConection() {
     try {
-        await mongoose.connect(`mongodb+srv://mrippo:Santafesito-2@cluster0.s8nhaxy.mongodb.net/db-SAM`);
+        await mongoose.connect(REMOTE_STRING_CONNECTION);
         console.log(`conected mongodb`);
     } catch (error) {
         console.error(`conected failed`);

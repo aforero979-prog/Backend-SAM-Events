@@ -74,12 +74,12 @@ Una vez que la rama `main` esté limpia y configurada, sigue este flujo para con
 2. **Realizar el merge de cada rama funcional:**
    > 💡 **Nota:** Al haber creado `main` como rama huérfana, no comparte historial con las ramas anteriores. Debes incluir la bandera `--allow-unrelated-histories` en los merges:
    ```bash
-   git merge feature/user --allow-unrelated-histories
-   git merge feature/authentication --allow-unrelated-histories
-   git merge feature/categories --allow-unrelated-histories
-   git merge feature/cities --allow-unrelated-histories
-   git merge feature/events --allow-unrelated-histories
-   git merge Locations --allow-unrelated-histories
+   git merge origin/feature/user --allow-unrelated-histories -m "Merge feature/user"
+   git merge origin/feature/authentication --allow-unrelated-histories -m "Merge feature/authentication"
+   git merge origin/feature/categories --allow-unrelated-histories -m "Merge feature/categories"
+   git merge origin/feature/cities --allow-unrelated-histories -m "Merge feature/cities"
+   git merge origin/feature/events --allow-unrelated-histories -m "Merge feature/events"
+   git merge origin/Locations --allow-unrelated-histories -m "Merge Locations"
    ```
 
 3. **Verificar que la aplicación compile y funcione correctamente tras cada integración.**

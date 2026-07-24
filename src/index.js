@@ -1,12 +1,15 @@
 import express from "express";
-
+import eventsRoutes from "./routes/events.routes.js"
+import locationsRoutes from "./routes/location.routes.js"
 import userRoutes from "./routes/user.routes.js"
 
 import { dbConection } from "./config/mongo.config.js";
 
 const app = express();
 
-dbConection();//llamamos a la funcion para conectar con la base de datos
+dbConection();
+
+app.use(express.json());
 
 //middlewares
 app.use(express.json());//para que express pueda entender el formato json en req.body
@@ -18,11 +21,11 @@ app.get(`/health`, (req, res) => {
         msj: "sitio corriendo"
     })
 })
-//endpoint para probar rutas
-app.use('/user', userRoutes);
 
+app.use('/users', userRoutes);
+app.use('/events', eventsRoutes);
+app.use('/locations', locationsRoutes);
 
-//lanzar el servidor
 app.listen(port, () => {
     console.log(`Server is running on http://localhost:${port}`);
 });

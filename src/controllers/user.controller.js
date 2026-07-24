@@ -1,4 +1,3 @@
-import { UserModel } from "../models/User.model.js";
 import { dbGetUsers, dbCreateUser, dbDeleteUser, dbUpdateUser } from "../services/user.service.js";
 
 // function que se llama a user.routes.js para ejecutarse
@@ -43,7 +42,7 @@ async function updateUsers(req, res) {
         msj: `actualizar usuario`,
         data: data
     })
-     // busca el id en la base de datos y actualiza con el objeto recibido por body, new:true devuelve el objeto actualizado
+    // busca el id en la base de datos y actualiza con el objeto recibido por body, new:true devuelve el objeto actualizado
 }
 
 async function deleteUser(req, res) {
