@@ -80,6 +80,7 @@ Una vez que la rama `main` esté limpia y configurada, sigue este flujo para con
    git merge origin/feature/cities --allow-unrelated-histories -m "Merge feature/cities"
    git merge origin/feature/events --allow-unrelated-histories -m "Merge feature/events"
    git merge origin/Locations --allow-unrelated-histories -m "Merge Locations"
+
    ```
 
 3. **Verificar que la aplicación compile y funcione correctamente tras cada integración.**
