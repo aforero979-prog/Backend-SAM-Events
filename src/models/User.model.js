@@ -6,6 +6,10 @@ const UserSchema = new Schema({
         default: ``,
         trim: true, //para que no haya espacios al principipo y al final
     },
+    nit: {
+        type: String,
+        required: false
+    },
     email: {
         type: String,
         required: [true, `El correo es obligatorio`], // el campo es obligatorio

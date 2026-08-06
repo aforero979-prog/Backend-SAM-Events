@@ -1,4 +1,5 @@
 import express from "express";
+import cors from "cors";
 
 import eventsRoutes from "./routes/events.routes.js"
 import locationsRoutes from "./routes/location.routes.js"
@@ -17,7 +18,7 @@ const app = express();
 
 dbConection();            //llamamos a la funcion para conectar con la base de datos
 
-
+app.use(cors())
 app.use(express.json());  //Habilitamos la interceptación de objetos JSon
 
 const port = 3000;

@@ -17,12 +17,15 @@ const EventSchema = new Schema({
         default: 1,
         min: 1
     } ,
-
     status : {
         type: Boolean,
         default: true
     },
-
+    localidad: {
+        type: String,
+        default: "General",
+        enum: [ "General", "VIP", "Backstage", "Palco1", "Palco2", "Palco3", "Palco4" ]
+    },
     initialDate: { 
         type: Date,
         required: true
@@ -30,7 +33,7 @@ const EventSchema = new Schema({
 
     finalDate: {
         type: Date,
-        required: true
+        required: false
     },
 
     imageUrl: {
@@ -40,7 +43,7 @@ const EventSchema = new Schema({
     category: {
         type: Schema.Types.ObjectId,
         ref: 'categories',
-        required: true
+        // required: true
     }
 }, {
     versionKey: false,  

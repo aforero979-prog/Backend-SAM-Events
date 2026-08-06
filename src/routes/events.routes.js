@@ -6,7 +6,7 @@ const app = Router();
 
 app.get(`/`, getEvents);
 app.get(`/:id`, getEvent);
-app.post(`/`, authenticationUser, postEvents);
+app.post(`/`, postEvents);
 app.patch(`/:id`, authenticationUser, updateEvents);
 app.delete(`/:id`, authenticationUser, deleteEvent);
 

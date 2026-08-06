@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 
 const REMOTE_STRING_CONNECTION = 'mongodb+srv://mrippo:Santafesito-2@cluster0.s8nhaxy.mongodb.net/db-SAM'
-
+// const REMOTE_STRING_CONNECTION = 'mongodb+srv://jcarlosj:saARXutKrVvHFHsO@cluster0.lapkq.mongodb.net/db-sam'
 
 async function dbConection() {
     try {

@@ -6,14 +6,17 @@ const TicketSchema = new Schema({
         type: String,
         required: true,
     },
-    price: {
-        type: Number,
-        default: 0,
-
-    },
-    description: {
+    lastname: {
         type: String,
         required: true,
+    },
+     email: {
+        type: String,
+        required: true,
+    },
+    imageUrl: {
+        type: "",
+        required: true
     },
     status: {
         type: String,
@@ -23,6 +26,14 @@ const TicketSchema = new Schema({
     stock: {
         type: Number,
         default: 1
+    },
+    localidad: {
+        type: String,
+        required: true
+    },
+    cedula: {
+        type: Number,
+        required: true
     }
 }, {
 
